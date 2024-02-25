@@ -38,6 +38,7 @@ class ProductManager {
     getProducts = async () => {
         try {
             const data = await fs.promises.readFile(this.path, 'utf-8');
+            console.log('Data:', data);
             return JSON.parse(data) || [];
         } catch (error) {
             console.error('Error al obtener los productos:', error);
@@ -87,55 +88,33 @@ class ProductManager {
 
 const productManager = new ProductManager();
 
-(async () => {
-    console.log('Instancia de ProductManager creada');
 
-    let products = await productManager.getProducts();  
-    if (products.length === 0) {
-        console.log('getProducts - OK');
-    } else {
-        console.error('Error en getProducts');
-    }
+async function testProductManager() {
+    
+    await productManager.addProduct('Producto 1', 'Descripción del producto 1', 100, 'imagen1.jpg', 'A5', 10);
 
-    const newProduct = await productManager.addProduct(
-        "producto prueba",
-        "Este es un producto prueba",
-        200,
-        "Sin imagen",
-        "abc126",
-        25
-    );
-    if (newProduct !== null) {
-        console.log('Producto agregado correctamente:', newProduct);
+    
+    const products = await productManager.getProducts();
+    console.log('Productos:', products);
 
-        products = await productManager.getProducts();
-        console.log('Productos actuales:', products);
+   
+    const productById = await productManager.getProductById(1);
+    console.log('Producto por ID:', productById);
 
-        const productId = newProduct.id; 
-        const productById = await productManager.getProductById(productId);
-        if (productById !== null) {
-            console.log('Producto encontrado por ID:', productById);
-        } else {
-            console.error('Error en getProductById');
-        }
 
-        /* const updatedProduct = await productManager.updateProduct(productId, { price: 300 });
-        if (updatedProduct !== null && updatedProduct.price === 300) {
-            console.log('Producto actualizado:', updatedProduct);
-        } else {
-            console.error('Error en updateProduct');
-        } */
+    const updatedProduct = await productManager.updateProduct(1, { price: 150 });
+    console.log('Producto actualizado:', updatedProduct);
 
-        products = await productManager.getProducts();
-        console.log('Productos actuales:', products);
+   
+    const deletedProduct = await productManager.deleteProduct(4);
+    console.log('Producto eliminado:', deletedProduct); 
 
-       /*  const deletedProduct = await productManager.deleteProduct(productId);
-        if (deletedProduct !== null) {
-            console.log('Producto eliminado:', deletedProduct);
-        } else {
-            console.error('Error en deleteProduct');
-        }
- */
-        
-    } 
-})();
+   
+    const updatedProducts = await productManager.getProducts();
+    console.log('Productos actualizados:', updatedProducts);
+}
+
+
+testProductManager();
+
+ 
