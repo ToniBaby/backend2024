@@ -1,83 +1,12 @@
 [
 	{
-		"id": 1,
-		"title": "Producto 1",
-		"description": "Descripción del producto 1",
-		"price": 150,
-		"thumbnail": "imagen1.jpg",
-		"code": "A1",
-		"stock": 10
-	},
-	{
-		"id": 2,
-		"title": "Producto 2",
-		"description": "Descripción del producto 2",
-		"price": 150,
-		"thumbnail": "imagen2.jpg",
-		"code": "A2",
-		"stock": 15
-	},
-	{
-		"id": 3,
-		"title": "Producto 3",
-		"description": "Descripción del producto 3",
-		"price": 120,
-		"thumbnail": "imagen3.jpg",
-		"code": "A3",
-		"stock": 20
-	},
-	{
-		"id": 5,
-		"title": "Producto 5",
-		"description": "Descripción del producto 5",
-		"price": 200,
-		"thumbnail": "imagen5.jpg",
-		"code": "A5",
-		"stock": 12
-	},
-	{
-		"id": 6,
-		"title": "Producto 6",
-		"description": "Descripción del producto 6",
-		"price": 80,
-		"thumbnail": "imagen6.jpg",
-		"code": "A6",
-		"stock": 18
-	},
-	{
-		"id": 7,
-		"title": "Producto 7",
-		"description": "Descripción del producto 7",
-		"price": 300,
-		"thumbnail": "imagen7.jpg",
-		"code": "A7",
-		"stock": 5
-	},
-	{
-		"id": 8,
-		"title": "Producto 8",
-		"description": "Descripción del producto 8",
-		"price": 170,
-		"thumbnail": "imagen8.jpg",
-		"code": "A8",
-		"stock": 25
-	},
-	{
-		"id": 9,
-		"title": "Producto 9",
-		"description": "Descripción del producto 9",
-		"price": 110,
-		"thumbnail": "imagen9.jpg",
-		"code": "A9",
-		"stock": 14
-	},
-	{
-		"id": 10,
-		"title": "Producto 10",
-		"description": "Descripción del producto 10",
-		"price": 250,
-		"thumbnail": "imagen10.jpg",
-		"code": "A10",
-		"stock": 30
-	}
+        "title": "Producto 1",
+        "description": "Descripción del producto 1",
+        "price": 150,
+        "thumbnail": "imagen1.jpg",
+        "code": "A1",
+        "stock": 10,
+        "id": 600
+    }
+
 ]

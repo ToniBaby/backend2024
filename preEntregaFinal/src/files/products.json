@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"title": "Producto 1",
+		"description": "Descripción del producto 1",
+		"price": 150,
+		"thumbnail": "imagen1.jpg",
+		"code": "A1",
+		"stock": 10,
+		"status": "",
+		"category": "",
+		"thumbnails": ""
+	},
+	{
+		"id": 3,
+		"title": "Producto 1",
+		"description": "Descripción del producto 1",
+		"price": 100,
+		"thumbnail": "imagen1.jpg",
+		"code": "A3",
+		"stock": 10,
+		"status": "",
+		"category": "",
+		"thumbnails": ""
+	},
+	{
+		"id": 5,
+		"title": "Producto 1",
+		"description": "Descripción del producto 1",
+		"price": 100,
+		"thumbnail": "imagen1.jpg",
+		"code": "A5",
+		"stock": 10,
+		"status": "",
+		"category": "",
+		"thumbnails": ""
+	},
+	{
+		"id": 6,
+		"title": "Producto 1",
+		"description": "Descripción del producto 1",
+		"price": 100,
+		"thumbnail": "imagen1.jpg",
+		"code": "A5",
+		"stock": 10,
+		"status": "1",
+		"category": "12fss",
+		"thumbnails": "/images/titan.jpeg"
+	}
+]
