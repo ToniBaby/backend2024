@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {CartManager} from  "../managers/CartManagerFile.js";
+import {CartManager} from  "../managers/cartManager.js";
 
 // Ruta del archivo donde se guardan los carritos
 const path = "carts.json";
@@ -37,15 +37,41 @@ router.post('/', async (req,res)=>{
     });
 });
 
+
 // Endpoint para agregar un producto a un carrito
 router.post('/:cid/product/:pid', async (req,res)=>{
     const cid = req.params.cid; // ID del carrito
     const pid = req.params.pid; // ID del producto a agregar
+
+    // Obtener el carrito por su ID
+    const cart = await cartManager.getCartById(cid);
+    if (!cart) {
+        res.status(404).send({
+            status: 'error',
+            message: 'Carrito no encontrado'
+        });
+        return;
+    }
+
+    // Verificar si el carrito tiene la propiedad 'products' definida
+    if (!cart.products) {
+        cart.products = [];
+    }
+
+    // Agregar el producto al carrito
+    cart.products.push({ productId: pid, quantity: 1 });
+
+    // Guardar el carrito actualizado en el archivo
+    await cartManager.updateCart(cid, cart);
+
     res.send({
         status: "success",
-        msg: `Ruta POST CARTS - Agrego producto al carrito. CID: ${cid} PID: ${pid}`
+        message: `Producto agregado al carrito con ID ${cid}`,
+        cart: cart
     });
 });
+
+
 
 // Endpoint para actualizar un carrito
 router.put('/:cid', async (req,res)=>{

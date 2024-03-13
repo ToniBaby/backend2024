@@ -18,6 +18,15 @@ class CartManager {
             return[];
         }
     }
+  
+    // Método para obtener un carrito por su ID
+
+    getCartById = async(cartId)=>{
+        const carts = await this.getCarts();
+        return carts.find(cart => cart.id === parseInt(cartId));
+
+    }
+
 
     // Método para crear un nuevo carrito
     createCarts = async (cart)=>{

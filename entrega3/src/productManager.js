@@ -57,34 +57,7 @@ addProduct = async (title, description, price, thumbnail, code, stock) => {
         }
     }
 
-    createProducts = async (product) => {
-        try {
-            const products = await this.getProducts();
-    
-            
-            const requiredFields = ["title", "description", "code", "price", "status", "stock", "category"];
-            for (const field of requiredFields) {
-                if (!product[field]) {
-                    throw new Error(`El campo ${field} es obligatorio.`);
-                }
-            }
-    
-           
-            if (products.length === 0) {
-                product.id = 1;
-            } else {
-                product.id = products[products.length - 1].id + 1;
-            }
-    
-          
-            products.push(product);
-            await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
-            
-            return { status: 201, message: 'Producto creado correctamente', producto: product };
-        } catch (error) {
-            return { status: 400, message: 'Error al crear el producto', error: error.message };
-        }
-    }
+
 
     // Método para obtener un producto por su ID
     getProductById = async (id) => {

@@ -39,7 +39,7 @@ app.get('/products/:pid', async (req, res) => {
 
 app.post('/products', async (req, res) => {
     const product = req.body;
-    const products = await productManager.createProducts(product);
+ 
     product.id = Number.parseInt(Math.random() * 1000); 
     
     

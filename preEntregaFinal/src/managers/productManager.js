@@ -31,6 +31,14 @@ class ProductManager {
         }
     }
 
+
+    async getProductById(id) {
+        const products = await this.getProducts();
+        const product = products.find(product => product.id === parseInt(id));
+
+        console.log(product); // Verifica si el producto con el ID dado se encuentra
+        return product || null;
+    }
     // Método para crear un nuevo producto
     createProducts = async (product) => {
         try {
@@ -80,7 +88,8 @@ class ProductManager {
             }
     
             // Actualizar el producto y guardar la lista actualizada en el archivo
-            products[index] = newData;
+            products[index] = { ...products[index], ...newData };
+
             await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
     
             return products[index];
