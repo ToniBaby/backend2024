@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import __dirname from "../utils.js"
+import __dirname from "./utils.js"
 
 class ProductManager {
     constructor(pathFile){
@@ -44,7 +44,7 @@ class ProductManager {
         try {
             const products = await this.getProducts();
     
-            const requiredFields = ["title", "description", "code", "price", "status", "stock", "thumbnail"];
+            const requiredFields = ["title", "description", "code", "price", "status", "stock", "category"];
             // Validar que todos los campos requeridos estén presentes en el producto
             for (const field of requiredFields) {
                 if (!product[field]) {

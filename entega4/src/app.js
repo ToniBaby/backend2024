@@ -1,11 +1,10 @@
 import express from "express";
 import path from "path";
 import __dirname from "./utils.js";
-import { productRouter } from "./routes/products.router.js";
-import { cartRouter } from "./routes/carts.router.js";
 import handlebars from "express-handlebars";
 import {Server} from "socket.io";
 import { realTimeProductsRouter } from "./routes/realTimeProducts.router.js";
+import { homeRouter } from "./routes/home.router.js";
 
 const PORT = 8080;
 const app = express();
@@ -23,13 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.get('/', (req,res)=>{
-    let testUser = {
-        name:"Hilda",
-        last_name:"mainini"
-    }
-    res.render('index' , testUser);
-});
+
 
 // Servidor para Socket
 
@@ -39,12 +32,14 @@ app.set('ws', socketServer)
 
 socketServer.on('connection', (socket)=>{
     console.log('Nuevo cliente conectado')
+
+    
 })
 
 
 //Rutas
 
-app.use("/api/products", productRouter);
-app.use("/api/carts", cartRouter);
-app.use('realTimeProducts', realTimeProductsRouter);
+
+app.use('/realTimeProducts', realTimeProductsRouter);
+app.use('/home', homeRouter);
 
