@@ -1,0 +1,16 @@
+[
+	{
+		"title": "Producto 1",
+		"description": "Descripción del producto 1",
+		"code": "P001",
+		"price": 100,
+		"stock": 10,
+		"category": "Categoría 1",
+		"thumbnails": [
+			"ruta1.jpg",
+			"ruta2.jpg"
+		],
+		"id": 1,
+		"status": true
+	}
+]
