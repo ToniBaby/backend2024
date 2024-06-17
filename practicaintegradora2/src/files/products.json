@@ -1,0 +1,52 @@
+[
+	{
+		"title": "Producto 1",
+		"description": "Descripción del producto 1",
+		"code": "P001",
+		"price": 100,
+		"stock": 10,
+		"category": "Categoría 1",
+		"thumbnails": [
+			"ruta1.jpg",
+			"ruta2.jpg"
+		],
+		"id": 1,
+		"status": true
+	},
+	{
+		"title": "Producto 3",
+		"description": "Descripción del producto 2",
+		"code": "P001",
+		"price": 1000,
+		"stock": 100,
+		"category": "Categoría 3",
+		"thumbnails": [
+			"ruta1.jpg",
+			"ruta2.jpg"
+		],
+		"id": 3,
+		"status": true
+	},
+	{
+		"title": "Caffetera",
+		"description": "cafetera",
+		"code": "1234321",
+		"price": "1500",
+		"stock": "20",
+		"category": "cocina",
+		"thumbnail": "1.png",
+		"id": 4,
+		"status": true
+	},
+	{
+		"title": "Caffetera3",
+		"description": "cafetera3",
+		"code": "12343213",
+		"price": "15003",
+		"stock": "203",
+		"category": "cocina3",
+		"thumbnail": "1.png3",
+		"id": 5,
+		"status": true
+	}
+]
