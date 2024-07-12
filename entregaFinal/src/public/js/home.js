@@ -1,10 +1,9 @@
 const socket = io();
 
-// Escuchar eventos desde el servidor
 socket.on('updateProducts', (products) => {
     const productsFeed = document.getElementById('productsFeed');
-    productsFeed.innerHTML = ''; // Limpiar contenido actual
-    
+    productsFeed.innerHTML = ''; // Clear the current content
+
     products.forEach(product => {
         const productElement = document.createElement('div');
         productElement.innerHTML = `
@@ -19,20 +18,4 @@ socket.on('updateProducts', (products) => {
         `;
         productsFeed.appendChild(productElement);
     });
-});
-
-// Enviar nuevo producto al servidor
-document.getElementById('productForm').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const product = {
-        title: formData.get('title'),
-        description: formData.get('description'),
-        code: formData.get('code'),
-        price: formData.get('price'),
-        stock: formData.get('stock'),
-        category: formData.get('category'),
-        thumbnail: formData.get('thumbnail')
-    };
-    socket.emit('newProduct', product);
 });

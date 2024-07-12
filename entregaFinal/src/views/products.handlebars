@@ -1,0 +1,56 @@
+<header>
+    <h1>{{title}}</h1>
+</header>
+
+<main>
+    <section>
+        <div>
+            {{#if hasPrevPage}}
+            <a href="{{prevLink}}"><button>Página Anterior</button></a>
+            {{/if}}
+
+            Página {{page}} de {{totalPages}}
+
+            {{#if hasNextPage}}
+            <a href="{{nextLink}}"><button>Página Siguiente</button></a>
+            {{/if}}
+        </div>
+        <div>
+            <a href="?limit={{limit}}&page={{page}}&sort=asc&query={{query}}"><button>⬇ Orden Ascendente</button></a>
+            <a href="?limit={{limit}}&page={{page}}&sort=desc&query={{query}}"><button>⬆ Orden Descendente</button></a>
+            <a href="?limit={{limit}}&page={{page}}&sort=&query={{query}}"><button>⬌ Sin Orden</button></a>
+        </div>
+    </section>
+
+    <section>
+        <h3>Lista de Productos</h3>
+        <table id="productsTable">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Código</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="productsFeed">
+                {{#each products}}
+                <tr>
+                    <td><img src="{{this.thumbnail}}" alt="imagen de {{this.title}}" width="100"></td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.stock}}</td>
+                    <td>{{this.code}}</td>
+                    <td><button onclick="addToCart('{{this._id}}')">Agregar al Carrito</button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<script src="/js/products.js"></script>
